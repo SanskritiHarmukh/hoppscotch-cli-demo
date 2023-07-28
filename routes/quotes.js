@@ -12,6 +12,11 @@ let quotes = [
         id: "2",
         author: "Norman Vincent Peale",
         quote: "When you get up in the morning, you have two choices - either to be happy or to be unhappy. Just choose to be happy."
+    },
+    {
+        id: "3",
+        author: "Dr. B. R Ambedkar",
+        quote: "Cultivation of mind should be the ultimate aim of human existence.",
     }
 ];
 
