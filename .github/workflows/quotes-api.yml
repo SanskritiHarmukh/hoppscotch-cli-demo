@@ -35,7 +35,8 @@ jobs:
 
       - name: Start the server
         run: |
-          nohup npm start & # Start the server in the background
+          nohup npm start & 
+          echo $! > server.pid # Save the PID of the server
           sleep 10 # Wait for the server to start
 
       - name: Wait for server to be ready
@@ -50,4 +51,6 @@ jobs:
           hopp test -e exports/quotes.json exports/quotes-demo.json
 
       - name: Stop the server
-        run: kill $(jobs -p) # Stop the server after tests
+        run: |
+          kill $(cat server.pid) # Stop the server using the saved PID
+          rm server.pid
