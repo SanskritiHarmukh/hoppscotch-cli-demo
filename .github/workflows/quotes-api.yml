@@ -33,6 +33,21 @@ jobs:
         run: |
           npm install
 
+      - name: Start the server
+        run: |
+          nohup npm start & # Start the server in the background
+          sleep 10 # Wait for the server to start
+
+      - name: Wait for server to be ready
+        run: |
+          until curl -s http://127.0.0.1:5000; do
+            echo "Waiting for server..."
+            sleep 5
+          done
+
       - name: Run Hoppscotch tests
         run: |
           hopp test -e exports/quotes.json exports/quotes-demo.json
+
+      - name: Stop the server
+        run: kill $(jobs -p) # Stop the server after tests
