@@ -1,0 +1,38 @@
+name: Quotes API
+
+on:
+  push:
+    branches:
+      - main  
+  pull_request:
+    branches:
+      - main 
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'  
+
+      - name: Install Hoppscotch CLI
+        run: |
+          npm i -g @hoppscotch/cli
+
+      - name: Verify Hoppscotch version
+        run: |
+          hopp --version  
+
+      - name: Install other dependencies
+        run: |
+          npm install
+
+      - name: Run Hoppscotch tests
+        run: |
+          hopp test -e exports/quotes.json exports/quotes-demo.json
