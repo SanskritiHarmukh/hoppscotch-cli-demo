@@ -48,7 +48,9 @@ jobs:
 
       - name: Run Hoppscotch tests
         run: |
-          hopp test -e exports/quotes.json exports/quotes-demo.json
+          hopp test cm48txduq02a812g8lsxbxn2w -e cm47dw3jy002d3f238uk4yfr1 --token $HOPPSCOTCH_PERSONAL_ACCESS_TOKEN
+        env:
+          HOPPSCOTCH_PERSONAL_ACCESS_TOKEN: ${{ secrets.HOPPSCOTCH_PERSONAL_ACCESS_TOKEN }}
 
       - name: Stop the server
         run: |
