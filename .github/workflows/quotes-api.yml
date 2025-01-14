@@ -36,8 +36,8 @@ jobs:
       - name: Start the server
         run: |
           nohup npm start & 
-          echo $! > server.pid # Save the PID of the server
-          sleep 10 # Wait for the server to start
+          echo $! > server.pid
+          sleep 10
 
       - name: Wait for server to be ready
         run: |
