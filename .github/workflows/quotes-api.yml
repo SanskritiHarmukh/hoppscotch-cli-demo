@@ -48,7 +48,7 @@ jobs:
 
       - name: Run Hoppscotch tests
         run: |
-          hopp test cm48txduq02a812g8lsxbxn2w -e cm47dw3jy002d3f238uk4yfr1 --token $HOPPSCOTCH_PERSONAL_ACCESS_TOKEN
+          hopp test cm5wuvaf700jwwdopsb68uoic -e cm47dw3jy002d3f238uk4yfr1 --token $HOPPSCOTCH_PERSONAL_ACCESS_TOKEN
         env:
           HOPPSCOTCH_PERSONAL_ACCESS_TOKEN: ${{ secrets.HOPPSCOTCH_PERSONAL_ACCESS_TOKEN }}
 
